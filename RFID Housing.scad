@@ -8,12 +8,13 @@ translate([-40,20,0.8]) rotate([0,0,270]) RFID_RC522();
 //SparkCore
 color("white") translate([17,-18,-4]) rotate([90, 0, 0]) import("/Users/william/Documents/3D Projects/RFID Housing/SparkCore.stl");
 
-plate();
-box();
+Plate();
+Box();
+Feet();
 
 
 //Main Acrylic Plate
-module plate(){
+module Plate(){
 	difference(){
 		color([1, .8, 1, .3]) cube([105, 85, 1.6], true);
 		translate([-40,20,0.8]) rotate([0,0,270]) Screw_Holes();
@@ -26,7 +27,7 @@ module plate(){
 }
 
 //Main Enclosure
-module box(){
+module Box(){
 	//Main
 	difference(){
 		color([0,0.5,0.8]) translate([0,0,-15.9]) cube([110, 90, 30], true);
@@ -60,4 +61,19 @@ module Nuts(){
 	translate([52.5,33,0]) stainless() nut("M3", thread="modeled");
 	translate([16,3,0]) stainless() nut("M3", thread="modeled");
 	translate([16,37,0]) stainless() nut("M3", thread="modeled");
+}
+
+module foot(){
+	difference(){
+		color([0,0.5,0.8]) cylinder(2, 10, 10, center=true, $fn=100);
+		cylinder(10.5, 2.5, 2.5, center=true, $fn=100);
+	}
+	stainless() screw("M5x10", thread="modeled");
+}
+
+module Feet(){
+	translate([-44, 34, -29.9]) foot();
+	translate([44, -34, -29.9]) foot();
+	translate([-44, -34, -29.9]) foot();
+	translate([44, 34, -29.9]) foot();
 }
