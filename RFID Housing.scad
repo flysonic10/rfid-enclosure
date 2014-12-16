@@ -18,6 +18,8 @@ module plate(){
 		color([1, .8, 1, .3]) cube([105, 85, 1.6], true);
 		translate([-40,20,0.8]) rotate([0,0,270]) Screw_Holes();
 		translate([-20, 43, 0]) sphere(10); //RFID wire cutout
+		translate([-20,18,-0.8]) cube([25, 5, 5], true);
+		translate([-3,12,-0.8]) cube([5, 10, 5], true);
 	}
 	translate([-40,20,2.8]) rotate([0,0,270]) Screws();
 	translate([-40,20,-.9]) rotate([0,0,270]) Nuts();
@@ -27,7 +29,7 @@ module plate(){
 module box(){
 	//Main
 	difference(){
-		color([0,0.5,0.8]) translate([0,0,-13.4]) cube([110, 90, 25], true);
+		color([0,0.5,0.8]) translate([0,0,-15.9]) cube([110, 90, 30], true);
 		translate([0,0,-7.5]) cube([100, 80, 50], true);	
 	}
 
